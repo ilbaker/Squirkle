@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Squirkle Face Painting</title>
+
+  <!-- Icons for the social bar -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  >
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <div class="nav-pill"></div>
+
+    <a href="#home" class="nav-link active">Home</a>
+    <a href="#gallery" class="nav-link">Gallery</a>
+    <a href="#services" class="nav-link">Services</a>
+    <a href="#faqs" class="nav-link">FAQs</a>
+    <a href="#contact" class="nav-link">Contact</a>
+    <a href="#book-now" class="nav-link book-link">Book Now</a>
+  </nav>
+
+  <!-- Sticky social bar: replace the three links with your own -->
+  <aside class="social-bar" aria-label="Social links">
+
+    <a
+      href="https://www.instagram.com/YOUR_HANDLE"
+      class="social-link"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Instagram"
+    >
+      <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+    </a>
+
+    <a
+      href="https://www.facebook.com/YOUR_PAGE"
+      class="social-link"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Facebook"
+    >
+      <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+    </a>
+
+    <a
+      href="mailto:YOUR_EMAIL@gmail.com"
+      class="social-link"
+      aria-label="Email"
+    >
+      <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+    </a>
+
+  </aside>
+
+  <main>
+
+    <section id="home" class="hero">
+
+      <!-- Three.js mascot canvas -->
+      <div id="app"></div>
+
+      <!-- Face painting photos -->
+      <div class="face-disk disk-1">
+        <img src="/faces/kid1.jpg" alt="Face painting">
+      </div>
+
+      <div class="face-disk disk-2">
+        <img src="/faces/kid2.jpg" alt="Face painting">
+      </div>
+
+      <div class="face-disk disk-3">
+        <img src="/faces/kid3.jpg" alt="Face painting">
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         OUR WORK / GALLERY
+         ========================= -->
+
+    <section id="gallery" class="gallery">
+
+      <div class="gallery-intro">
+        <p class="gallery-kicker">It’s pretty sick.</p>
+
+        <h2 class="gallery-title">OUR WORK!</h2>
+
+        <p class="gallery-text">
+          From entertaining at your birthday parties, markets, fundraisers,
+          holiday events, and more! Squirkle is ready to bring extra pizzazz
+          to your events.
+        </p>
+      </div>
+
+      <div
+        class="gallery-carousel"
+        aria-roledescription="carousel"
+        aria-label="Face painting photos"
+      >
+
+        <div class="gallery-viewport">
+          <div class="gallery-track">
+
+            <!-- Slide 1: each slide is one collage of 4 photos -->
+            <div class="collage" aria-roledescription="slide" aria-label="1 of 3">
+              <img class="shot shot-a" src="/gallery/1a.jpg" alt="Kids with rainbow face paint">
+              <img class="shot shot-b" src="/gallery/1b.jpg" alt="Face painting kit">
+              <img class="shot shot-c" src="/gallery/1c.jpg" alt="Shark face paint">
+              <img class="shot shot-d" src="/gallery/1d.jpg" alt="Kids with glitter tattoos">
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="collage" aria-roledescription="slide" aria-label="2 of 3">
+              <img class="shot shot-a" src="/gallery/2a.jpg" alt="Face painting">
+              <img class="shot shot-b" src="/gallery/2b.jpg" alt="Face painting">
+              <img class="shot shot-c" src="/gallery/2c.jpg" alt="Face painting">
+              <img class="shot shot-d" src="/gallery/2d.jpg" alt="Face painting">
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="collage" aria-roledescription="slide" aria-label="3 of 3">
+              <img class="shot shot-a" src="/gallery/3a.jpg" alt="Face painting">
+              <img class="shot shot-b" src="/gallery/3b.jpg" alt="Face painting">
+              <img class="shot shot-c" src="/gallery/3c.jpg" alt="Face painting">
+              <img class="shot shot-d" src="/gallery/3d.jpg" alt="Face painting">
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Cute arrows -->
+        <button class="gallery-arrow arrow-prev gallery-prev" type="button" aria-label="Previous photos">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M15 5 L8 12 L15 19" />
+          </svg>
+        </button>
+
+        <button class="gallery-arrow arrow-next gallery-next" type="button" aria-label="Next photos">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M9 5 L16 12 L9 19" />
+          </svg>
+        </button>
+
+        <!-- Dots get filled in by main.js -->
+        <div class="gallery-dots"></div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         SERVICES (trading cards)
+         ========================= -->
+
+    <section id="services" class="services">
+
+      <div class="gallery-intro">
+        <p class="gallery-kicker">Pick your party.</p>
+
+        <h2 class="gallery-title">SERVICES</h2>
+
+        <p class="gallery-text">
+          Every package is 2 hours of fun. Choose one, then add glitter
+          tattoos if you want even more sparkle.
+        </p>
+      </div>
+
+      <div class="services-carousel">
+
+        <div class="services-track" tabindex="0" aria-label="Service packages">
+
+          <!-- BASIC -->
+          <article class="service-card card-basic">
+            <div class="card-inner">
+
+              <header class="card-head">
+                <span class="card-icon" aria-hidden="true">🎨</span>
+                <h3 class="card-name">Basic Package</h3>
+                <p class="card-price"><span>$</span>200</p>
+              </header>
+
+              <div class="card-photo">
+                <img src="/services/basic.jpg" alt="Child with a unicorn face painting">
+                <span class="card-badge">Package</span>
+              </div>
+
+              <ul class="card-stats">
+                <li>
+                  <span class="stat-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                  </span>
+                  2 hours of face painting
+                </li>
+                <li>
+                  <span class="stat-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6M15 14.5c3 0 6 2 6 5.5"/></svg>
+                  </span>
+                  Up to 24 guests
+                </li>
+                <li>
+                  <span class="stat-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M14 4l6 6-8 8H6v-6z"/><path d="M11 7l6 6"/></svg>
+                  </span>
+                  Quick, simple designs
+                </li>
+              </ul>
+
+              <p class="card-note">Travel fees and supplies included</p>
+
+              <a href="#book-now" class="card-cta">Book Basic</a>
+
+            </div>
+          </article>
+
+          <!-- DELUXE -->
+          <article class="service-card card-deluxe">
+            <div class="card-inner">
+
+              <header class="card-head">
+                <span class="card-icon" aria-hidden="true">👑</span>
+                <h3 class="card-name">Deluxe Package</h3>
+                <p class="card-price"><span>$</span>250</p>
+              </header>
+
+              <div class="card-photo">
+                <img src="/services/deluxe.jpg" alt="Full-face painting design">
+                <span class="card-badge">Package</span>
+              </div>
+
+              <ul class="card-stats">
+                <li>
+                  <span class="stat-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                  </span>
+                  2 hours of face painting
+                </li>
+                <li>
+                  <span class="stat-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6M15 14.5c3 0 6 2 6 5.5"/></svg>
+                  </span>
+                  Up to 15 guests
+                </li>
+                <li>
+                  <span class="stat-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M14 4l6 6-8 8H6v-6z"/><path d="M11 7l6 6"/></svg>
+                  </span>
+                  Full-face designs and special requests
+                </li>
+              </ul>
+
+              <p class="card-note">Everything in Basic, plus extra products</p>
+
+              <a href="#book-now" class="card-cta">Book Deluxe</a>
+
+            </div>
+          </article>
+
+          <!-- GLITTER PACKAGE -->
+          <article class="service-card card-glitter">
+            <div class="card-inner">
+
+              <header class="card-head">
+                <span class="card-icon" aria-hidden="true">🌟</span>
+                <h3 class="card-name">Glitter Package</h3>
+                <p class="card-price"><span>$</span>150</p>
+              </header>
+
+              <div class="card-photo">
+                <img src="/services/glitter-package.jpg" alt="Glitter tattoo">
+                <span class="card-badge">Package</span>
+              </div>
+
+              <ul class="card-stats">
+                <li>
+                  <span class="stat-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                  </span>
+                  2 hours of glitter tattoos
+                </li>
+                <li>
+                  <span class="stat-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6M15 14.5c3 0 6 2 6 5.5"/></svg>
+                  </span>
+                  Up to 48 guests
+                </li>
+                <li>
+                  <span class="stat-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M4 5h6a2 2 0 0 1 2 2v12a2 2 0 0 0-2-2H4zM20 5h-6a2 2 0 0 0-2 2v12a2 2 0 0 1 2-2h6z"/></svg>
+                  </span>
+                  Choose from themed design books
+                </li>
+              </ul>
+
+              <p class="card-note">Great for big groups</p>
+
+              <a href="#book-now" class="card-cta">Book Glitter</a>
+
+            </div>
+          </article>
+
+          <!-- GLITTER TATTOO ADD-ON -->
+          <article class="service-card card-addon">
+            <div class="card-inner">
+
+              <header class="card-head">
+                <span class="card-icon" aria-hidden="true">✨</span>
+                <h3 class="card-name">Glitter Tattoos</h3>
+                <p class="card-price"><span>+$</span>100</p>
+              </header>
+
+              <div class="card-photo">
+                <img src="/services/glitter-tattoos.jpg" alt="Glitter tattoo on a hand">
+                <span class="card-badge">Add-on</span>
+              </div>
+
+              <ul class="card-stats">
+                <li>
+                  <span class="stat-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                  </span>
+                  Runs alongside face painting
+                </li>
+                <li>
+                  <span class="stat-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6M15 14.5c3 0 6 2 6 5.5"/></svg>
+                  </span>
+                  Up to 24 more guests
+                </li>
+                <li>
+                  <span class="stat-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M4 5h6a2 2 0 0 1 2 2v12a2 2 0 0 0-2-2H4zM20 5h-6a2 2 0 0 0-2 2v12a2 2 0 0 1 2-2h6z"/></svg>
+                  </span>
+                  Choose from themed design books
+                </li>
+              </ul>
+
+              <p class="card-note">Add to any face painting package</p>
+
+              <a href="#book-now" class="card-cta">Add to my booking</a>
+
+            </div>
+          </article>
+
+        </div>
+
+        <button class="gallery-arrow arrow-prev services-prev" type="button" aria-label="Previous package">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M15 5 L8 12 L15 19" />
+          </svg>
+        </button>
+
+        <button class="gallery-arrow arrow-next services-next" type="button" aria-label="Next package">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M9 5 L16 12 L9 19" />
+          </svg>
+        </button>
+
+        <div class="services-dots"></div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         FAQS
+         ========================= -->
+
+    <section id="faqs" class="faq">
+
+      <div class="gallery-intro">
+        <p class="gallery-kicker">Good to know.</p>
+
+        <h2 class="gallery-title">BEFORE YOU BOOK</h2>
+
+        <p class="gallery-text">
+          This section totally doesn’t have a bunch of really important info.
+          You totally shouldn’t read it.
+        </p>
+      </div>
+
+      <div class="faq-body">
+
+        <!-- Category tabs -->
+        <div class="faq-tabs" role="tablist" aria-label="FAQ categories">
+          <button
+            class="faq-tab is-active"
+            id="faq-tab-bookings"
+            type="button"
+            role="tab"
+            aria-selected="true"
+            aria-controls="faq-panel-bookings"
+            tabindex="0"
+          >
+            <span class="faq-tab-icon">
+              <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="6" width="22" height="19" rx="4" fill="#AE2D80"/><rect x="3" y="6" width="22" height="6" rx="3" fill="#8E2066"/><rect x="8" y="3" width="3" height="6" rx="1.5" fill="#8E2066"/><rect x="17" y="3" width="3" height="6" rx="1.5" fill="#8E2066"/><circle cx="9" cy="16" r="1.4" fill="#FFF9E8"/><circle cx="14" cy="16" r="1.4" fill="#FFF9E8"/><circle cx="19" cy="16" r="1.4" fill="#FFF9E8"/><circle cx="9" cy="21" r="1.4" fill="#FFF9E8"/><circle cx="24" cy="24" r="6.5" fill="#8CC152" stroke="#FFF9E8" stroke-width="1.5"/><text x="24" y="27.6" text-anchor="middle" font-size="10" font-weight="800" fill="#FFF9E8" font-family="Avenir, sans-serif">$</text></svg>
+            </span>
+            <span class="faq-tab-text">
+              <span class="faq-tab-name">Bookings &amp; Payment</span>
+              <span class="faq-tab-count">4 questions</span>
+            </span>
+          </button>
+          <button
+            class="faq-tab"
+            id="faq-tab-event"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            aria-controls="faq-panel-event"
+            tabindex="-1"
+          >
+            <span class="faq-tab-icon">
+              <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2.5c-5.8 0-10 4.3-10 10 0 7.2 10 17 10 17s10-9.8 10-17c0-5.7-4.2-10-10-10z" fill="#5FB8B2"/><circle cx="16" cy="12.5" r="4" fill="#FFF9E8"/></svg>
+            </span>
+            <span class="faq-tab-text">
+              <span class="faq-tab-name">Event Details</span>
+              <span class="faq-tab-count">4 questions</span>
+            </span>
+          </button>
+          <button
+            class="faq-tab"
+            id="faq-tab-safety"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            aria-controls="faq-panel-safety"
+            tabindex="-1"
+          >
+            <span class="faq-tab-icon">
+              <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2.5l11 4v8.5c0 7-4.8 12.4-11 14.5C9.8 27.4 5 22 5 15V6.5z" fill="#E6B24A"/><path d="M16 6.5l7.5 2.8v6c0 4.9-3.2 8.8-7.5 10.4-4.3-1.6-7.5-5.5-7.5-10.4v-6z" fill="#8CC152"/><path d="M12 15.8l2.8 2.8 5.4-5.6" fill="none" stroke="#FFF9E8" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="faq-tab-text">
+              <span class="faq-tab-name">Paint &amp; Safety</span>
+              <span class="faq-tab-count">4 questions</span>
+            </span>
+          </button>
+          <button
+            class="faq-tab"
+            id="faq-tab-cleanup"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            aria-controls="faq-panel-cleanup"
+            tabindex="-1"
+          >
+            <span class="faq-tab-icon">
+              <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M13 4c3.6 4.8 7.5 9 7.5 13.3a7.5 7.5 0 0 1-15 0C5.5 13 9.4 8.8 13 4z" fill="#5FB8B2"/><path d="M9.5 17.5a3.5 3.5 0 0 0 3.5 3.5" fill="none" stroke="#FFF9E8" stroke-width="2" stroke-linecap="round"/><circle cx="24.5" cy="10" r="3.5" fill="none" stroke="#AE2D80" stroke-width="2"/><circle cx="25" cy="21" r="4.5" fill="none" stroke="#AE2D80" stroke-width="2"/><circle cx="22" cy="4.5" r="1.8" fill="#AE2D80"/></svg>
+            </span>
+            <span class="faq-tab-text">
+              <span class="faq-tab-name">Clean-up &amp; Removal</span>
+              <span class="faq-tab-count">4 questions</span>
+            </span>
+          </button>
+        </div>
+
+        <!-- Questions for the selected category -->
+        <div class="faq-card">
+
+          <div
+            class="faq-panel is-active"
+            id="faq-panel-bookings"
+            role="tabpanel"
+            aria-labelledby="faq-tab-bookings"
+            
+          >
+            <header class="faq-panel-head">
+              <h3>Bookings &amp; Payment</h3>
+              <p>Deposits, payment methods, and changes to your booking.</p>
+            </header>
+
+            <div class="faq-item">
+              <h4 class="faq-q">
+                <button type="button" aria-expanded="false" aria-controls="faq-bookings-1">
+                  <span>What forms of payment do you accept?</span>
+                  <span class="faq-toggle" aria-hidden="true"></span>
+                </button>
+              </h4>
+              <div class="faq-answer" id="faq-bookings-1" role="region">
+                <div class="faq-answer-inner">
+                  <p>We accept all major credit cards to secure your booking. The remaining balance is due on the day of your event and can be paid by cash, check, Venmo, PayPal, Zelle, or credit/debit card. Card payments have a 3.5% processing fee.</p>
+                </div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <h4 class="faq-q">
+                <button type="button" aria-expanded="false" aria-controls="faq-bookings-2">
+                  <span>What is your payment and cancellation policy?</span>
+                  <span class="faq-toggle" aria-hidden="true"></span>
+                </button>
+              </h4>
+              <div class="faq-answer" id="faq-bookings-2" role="region">
+                <div class="faq-answer-inner">
+                  <p><span class="faq-fill">[Add your answer here]</span></p>
+                </div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <h4 class="faq-q">
+                <button type="button" aria-expanded="false" aria-controls="faq-bookings-3">
+                  <span>How far in advance should I book?</span>
+                  <span class="faq-toggle" aria-hidden="true"></span>
+                </button>
+              </h4>
+              <div class="faq-answer" id="faq-bookings-3" role="region">
+                <div class="faq-answer-inner">
+                  <p><span class="faq-fill">[Add your answer here]</span></p>
+                </div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <h4 class="faq-q">
+                <button type="button" aria-expanded="false" aria-controls="faq-bookings-4">
+                  <span>Is Squirkle Face Painting insured?</span>
+                  <span class="faq-toggle" aria-hidden="true"></span>
+                </button>
+              </h4>
+              <div class="faq-answer" id="faq-bookings-4" role="region">
+                <div class="faq-answer-inner">
+                  <p><span class="faq-fill">[Add your answer here]</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="faq-panel"
+            id="faq-panel-event"
+            role="tabpanel"
+            aria-labelledby="faq-tab-event"
+            hidden
+          >
+            <header class="faq-panel-head">
+              <h3>Event Details</h3>
+              <p>What to expect on the day and what we need from you.</p>
+            </header>
+
+            <div class="faq-item">
+              <h4 class="faq-q">
+                <button type="button" aria-expanded="false" aria-controls="faq-event-1">
+                  <span>How many guests can you paint per hour?</span>
+                  <span class="faq-toggle" aria-hidden="true"></span>
+                </button>
+              </h4>
+              <div class="faq-answer" id="faq-event-1" role="region">
+                <div class="faq-answer-inner">
+                  <p><span class="faq-fill">[Add your answer here]</span></p>
+                </div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <h4 class="faq-q">
+                <button type="button" aria-expanded="false" aria-controls="faq-event-2">
+                  <span>What do I need to provide at the event?</span>
+                  <span class="faq-toggle" aria-hidden="true"></span>
+                </button>
+              </h4>
+              <div class="faq-answer" id="faq-event-2" role="region">
+                <div class="faq-answer-inner">
+                  <p><span class="faq-fill">[Add your answer here]</span></p>
+                </div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <h4 class="faq-q">
+                <button type="button" aria-expanded="false" aria-controls="faq-event-3">
+                  <span>What areas do you travel to?</span>
+                  <span class="faq-toggle" aria-hidden="true"></span>
+                </button>
+              </h4>
+              <div class="faq-answer" id="faq-event-3" role="region">
+                <div class="faq-answer-inner">
+                  <p><span class="faq-fill">[Add your answer here]</span></p>
+                </div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <h4 class="faq-q">
+                <button type="button" aria-expanded="false" aria-controls="faq-event-4">
+                  <span>Do you do outdoor events?</span>
+                  <span class="faq-toggle" aria-hidden="true"></span>
+                </button>
+              </h4>
+              <div class="faq-answer" id="faq-event-4" role="region">
+                <div class="faq-answer-inner">
+                  <p><span class="faq-fill">[Add your answer here]</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="faq-panel"
+            id="faq-panel-safety"
+            role="tabpanel"
+            aria-labelledby="faq-tab-safety"
+            hidden
+          >
+            <header class="faq-panel-head">
+              <h3>Paint &amp; Safety</h3>
+              <p>The products we use and how we keep every face happy.</p>
+            </header>
+
+            <div class="faq-item">
+              <h4 class="faq-q">
+                <button type="button" aria-expanded="false" aria-controls="faq-safety-1">
+                  <span>What kind of paint do you use?</span>
+                  <span class="faq-toggle" aria-hidden="true"></span>
+                </button>
+              </h4>
+              <div class="faq-answer" id="faq-safety-1" role="region">
+                <div class="faq-answer-inner">
+                  <p><span class="faq-fill">[Add your answer here]</span></p>
+                </div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <h4 class="faq-q">
+                <button type="button" aria-expanded="false" aria-controls="faq-safety-2">
+                  <span>What if my child has sensitive skin or allergies?</span>
+                  <span class="faq-toggle" aria-hidden="true"></span>
+                </button>
+              </h4>
+              <div class="faq-answer" id="faq-safety-2" role="region">
+                <div class="faq-answer-inner">
+                  <p><span class="faq-fill">[Add your answer here]</span></p>
+                </div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <h4 class="faq-q">
+                <button type="button" aria-expanded="false" aria-controls="faq-safety-3">
+                  <span>Is there a minimum age for face painting?</span>
+                  <span class="faq-toggle" aria-hidden="true"></span>
+                </button>
+              </h4>
+              <div class="faq-answer" id="faq-safety-3" role="region">
+                <div class="faq-answer-inner">
+                  <p><span class="faq-fill">[Add your answer here]</span></p>
+                </div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <h4 class="faq-q">
+                <button type="button" aria-expanded="false" aria-controls="faq-safety-4">
+                  <span>Will you paint over cuts, rashes, or scrapes?</span>
+                  <span class="faq-toggle" aria-hidden="true"></span>
+                </button>
+              </h4>
+              <div class="faq-answer" id="faq-safety-4" role="region">
+                <div class="faq-answer-inner">
+                  <p><span class="faq-fill">[Add your answer here]</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="faq-panel"
+            id="faq-panel-cleanup"
+            role="tabpanel"
+            aria-labelledby="faq-tab-cleanup"
+            hidden
+          >
+            <header class="faq-panel-head">
+              <h3>Clean-up &amp; Removal</h3>
+              <p>Getting the paint and glitter off when the party's over.</p>
+            </header>
+
+            <div class="faq-item">
+              <h4 class="faq-q">
+                <button type="button" aria-expanded="false" aria-controls="faq-cleanup-1">
+                  <span>How do I remove face paint?</span>
+                  <span class="faq-toggle" aria-hidden="true"></span>
+                </button>
+              </h4>
+              <div class="faq-answer" id="faq-cleanup-1" role="region">
+                <div class="faq-answer-inner">
+                  <p><span class="faq-fill">[Add your answer here]</span></p>
+                </div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <h4 class="faq-q">
+                <button type="button" aria-expanded="false" aria-controls="faq-cleanup-2">
+                  <span>Will the paint stain clothes?</span>
+                  <span class="faq-toggle" aria-hidden="true"></span>
+                </button>
+              </h4>
+              <div class="faq-answer" id="faq-cleanup-2" role="region">
+                <div class="faq-answer-inner">
+                  <p><span class="faq-fill">[Add your answer here]</span></p>
+                </div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <h4 class="faq-q">
+                <button type="button" aria-expanded="false" aria-controls="faq-cleanup-3">
+                  <span>How long do glitter tattoos last?</span>
+                  <span class="faq-toggle" aria-hidden="true"></span>
+                </button>
+              </h4>
+              <div class="faq-answer" id="faq-cleanup-3" role="region">
+                <div class="faq-answer-inner">
+                  <p><span class="faq-fill">[Add your answer here]</span></p>
+                </div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <h4 class="faq-q">
+                <button type="button" aria-expanded="false" aria-controls="faq-cleanup-4">
+                  <span>How do I remove a glitter tattoo?</span>
+                  <span class="faq-toggle" aria-hidden="true"></span>
+                </button>
+              </h4>
+              <div class="faq-answer" id="faq-cleanup-4" role="region">
+                <div class="faq-answer-inner">
+                  <p><span class="faq-fill">[Add your answer here]</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p class="faq-more">
+            Still have a question?
+            <a href="#contact">Send us a message</a>
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         BOOK NOW
+         ========================= -->
+
+    <section id="book-now" class="book">
+
+      <div class="book-layout">
+
+        <!-- Left: intro, disclaimer, how it works -->
+        <div class="book-intro">
+
+          <p class="gallery-kicker">
+            Read through our policies? No more questions? Awesome!
+          </p>
+
+          <h2 class="gallery-title">READY TO BOOK?</h2>
+
+          <div class="book-disclaimer">
+            <p class="book-disclaimer-title">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 7.5v5.5M12 16.5v.5"/></svg>
+              Disclaimer
+            </p>
+            <p>
+              Filling out this form is simply a request for service. Your
+              booking is not secure until we confirm our availability, receive
+              your $50 deposit, and receive your signed contract.
+            </p>
+          </div>
+
+          <ol class="book-steps">
+            <li>
+              <span class="book-step-num">1</span>
+              <span>
+                <strong>Send your request</strong>
+                Tell us about your event with the form.
+              </span>
+            </li>
+            <li>
+              <span class="book-step-num">2</span>
+              <span>
+                <strong>We confirm the date</strong>
+                We’ll reach out to let you know we’re available.
+              </span>
+            </li>
+            <li>
+              <span class="book-step-num">3</span>
+              <span>
+                <strong>Lock it in</strong>
+                Send the $50 deposit and signed contract, and you’re booked.
+              </span>
+            </li>
+          </ol>
+
+        </div>
+
+        <!-- Right: the request form -->
+        <div class="book-card">
+
+          <form
+            class="book-form"
+            action=""
+            method="POST"
+          >
+
+            <div class="field">
+              <label for="book-name">Your name</label>
+              <input id="book-name" name="name" type="text" autocomplete="name" required>
+            </div>
+
+            <div class="field">
+              <label for="book-email">Email</label>
+              <input id="book-email" name="email" type="email" autocomplete="email" required>
+            </div>
+
+            <div class="field">
+              <label for="book-phone">Phone <span class="optional">(optional)</span></label>
+              <input id="book-phone" name="phone" type="tel" autocomplete="tel">
+            </div>
+
+            <div class="field">
+              <label for="book-type">Type of event</label>
+              <select id="book-type" name="event_type" required>
+                <option value="" disabled selected>Choose one</option>
+                <option>Birthday party</option>
+                <option>Market or festival</option>
+                <option>Fundraiser</option>
+                <option>Holiday event</option>
+                <option>School or community event</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="book-date">Event date</label>
+              <input id="book-date" name="date" type="date" required>
+            </div>
+
+            <div class="field">
+              <label for="book-time">Start time</label>
+              <input id="book-time" name="start_time" type="time">
+            </div>
+
+            <div class="field">
+              <label for="book-location">City or venue</label>
+              <input id="book-location" name="location" type="text" required>
+            </div>
+
+            <div class="field">
+              <label for="book-guests">Number of guests</label>
+              <input id="book-guests" name="guests" type="number" min="1" inputmode="numeric">
+            </div>
+
+            <fieldset class="field field-full">
+              <legend>Package</legend>
+
+              <div class="package-options">
+                <label class="package-option option-basic">
+                  <input type="radio" name="package" value="Basic Package" required>
+                  <span class="package-name">Basic</span>
+                  <span class="package-price">$200</span>
+                </label>
+
+                <label class="package-option option-deluxe">
+                  <input type="radio" name="package" value="Deluxe Package">
+                  <span class="package-name">Deluxe</span>
+                  <span class="package-price">$250</span>
+                </label>
+
+                <label class="package-option option-glitter">
+                  <input type="radio" name="package" value="Glitter Package">
+                  <span class="package-name">Glitter</span>
+                  <span class="package-price">$150</span>
+                </label>
+              </div>
+
+              <label class="addon-option">
+                <input type="checkbox" name="addon" value="Glitter Tattoos add-on">
+                <span class="addon-box" aria-hidden="true"></span>
+                <span>Add glitter tattoos <strong>+$100</strong></span>
+              </label>
+            </fieldset>
+
+            <div class="field field-full">
+              <label for="book-message">Anything else we should know? <span class="optional">(optional)</span></label>
+              <textarea id="book-message" name="message" rows="3"></textarea>
+            </div>
+
+            <div class="field-full">
+              <button class="book-submit" type="submit">Send booking request</button>
+              <p class="book-fine-print">
+                This is a request, not a confirmed booking. We’ll get back to you
+                to confirm availability.
+              </p>
+            </div>
+
+          </form>
+
+          <div class="book-success" hidden tabindex="-1">
+            <p class="book-success-emoji" aria-hidden="true">🎨</p>
+            <h3>Request sent!</h3>
+            <p class="book-success-text">
+              Thanks! We’ll check our calendar and get back to you soon to
+              confirm the date, deposit, and contract.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <script
+    type="module"
+    src="/src/main.js"
+  ></script>
+
+</body>
+
+</html>

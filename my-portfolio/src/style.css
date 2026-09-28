@@ -1,0 +1,2677 @@
+/* =========================
+   FONTS
+   ========================= */
+
+/* Copy Hello-Goops.otf and Hello-Goops-RegularBouncy.otf
+   into public/fonts/ in your project */
+@font-face {
+  font-family: "Hello Goops";
+  src:
+    url("/fonts/Hello-Goops.otf") format("opentype"),
+    local("Hello Goops"),
+    local("Hello-Goops"),
+    local("Hello Goops Regular");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* The bouncy version, where the letters hop up and down.
+   To use it, change "Hello Goops" to "Hello Goops Bouncy"
+   in .gallery-title and .card-price */
+@font-face {
+  font-family: "Hello Goops Bouncy";
+  src:
+    url("/fonts/Hello-Goops-RegularBouncy.otf") format("opentype"),
+    local("Hello Goops Regular Bouncy"),
+    local("Hello-Goops-RegularBouncy");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+/* =========================
+   COLORS
+   ========================= */
+
+:root {
+  --magenta: #AE2D80;
+  --magenta-dark: #8E2066;
+  --cream: #F3EDD4;
+  --yellow: #ECD45E;
+  --purple: #592D8A;
+  --purple-dark: #3D1E63;
+}
+
+
+/* =========================
+   RESET
+   ========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  background: #F3EDD4;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+main {
+  width: 100%;
+}
+
+
+/* =========================
+   NAVBAR
+   ========================= */
+
+.navbar {
+  position: fixed;
+
+  top: 20px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  padding: 7px;
+
+  background: #592D8A;
+
+  border-radius: 999px;
+
+  box-shadow:
+    0 8px 25px rgba(61, 30, 99, 0.18);
+
+  font-family: Avenir, "Avenir Next", sans-serif;
+
+  white-space: nowrap;
+}
+
+.nav-link {
+  position: relative;
+
+  z-index: 2;
+
+  display: block;
+
+  padding: 10px 18px;
+
+  color: #ECD45E;
+
+  text-decoration: none;
+
+  font-family: Avenir, "Avenir Next", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+
+  border-radius: 999px;
+
+  transition:
+    transform 0.2s ease,
+    color 0.25s ease;
+}
+
+.nav-link:hover {
+  transform: translateY(-2px);
+}
+
+.nav-link:focus-visible {
+  outline: 2px solid #ECD45E;
+  outline-offset: 2px;
+}
+
+.nav-pill {
+  position: absolute;
+
+  z-index: 1;
+
+  top: 7px;
+  left: 7px;
+
+  height: calc(100% - 14px);
+
+  background: #3D1E63;
+
+  border-radius: 999px;
+
+  /* yellow ring around the pill */
+  box-shadow: inset 0 0 0 2px #ECD45E;
+
+  transition:
+    left 0.3s ease,
+    width 0.3s ease;
+}
+
+.book-link {
+  padding-left: 22px;
+  padding-right: 22px;
+}
+
+
+/* =========================
+   SOCIAL BAR
+   ========================= */
+
+.social-bar {
+  position: fixed;
+
+  top: 50%;
+  right: 20px;
+
+  transform: translateY(-50%);
+
+  z-index: 1000;
+
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  padding: 7px;
+
+  background: #592D8A;
+
+  border-radius: 999px;
+
+  box-shadow:
+    0 8px 25px rgba(61, 30, 99, 0.18);
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 44px;
+  height: 44px;
+
+  color: #ECD45E;
+
+  font-size: 20px;
+
+  text-decoration: none;
+
+  border-radius: 50%;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.social-link:hover {
+  background: #3D1E63;
+  transform: scale(1.08);
+}
+
+.social-link:focus-visible {
+  outline: 2px solid #ECD45E;
+  outline-offset: 2px;
+}
+
+
+/* =========================
+   HERO
+   ========================= */
+
+.hero {
+  position: relative;
+
+  width: 100%;
+  height: 100vh;
+  height: 100svh; /* avoids the mobile address-bar jump */
+  min-height: 560px;
+
+  background: #F3EDD4;
+
+  overflow: hidden;
+}
+
+
+/* =========================
+   THREE.JS CANVAS
+   ========================= */
+
+#app {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+#app canvas {
+  display: block;
+}
+
+
+/* =========================
+   FACE DISKS
+   ========================= */
+
+.face-disk {
+  position: absolute;
+  z-index: 3;
+
+  width: clamp(150px, 16vw, 230px);
+  aspect-ratio: 1 / 1;
+
+  border-radius: 50%;
+  overflow: hidden;
+
+  background: #592D8A;
+  border: 7px solid #ECD45E;
+
+  box-shadow:
+    0 10px 0 #3D1E63,
+    0 18px 25px rgba(61, 30, 99, 0.18);
+
+  cursor: pointer;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.face-disk img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  /* If a photo fails to load, hide the alt text (screen readers still get it) */
+  color: transparent;
+  font-size: 0;
+}
+
+
+/* =========================
+   POSITIONS
+   ========================= */
+
+.disk-1 {
+  top: 25%;
+  left: 8%;
+
+  transform: rotate(-8deg);
+}
+
+.disk-2 {
+  top: 22%;
+  right: 8%;
+
+  transform: rotate(8deg);
+}
+
+.disk-3 {
+  bottom: 8%;
+  right: 18%;
+
+  transform: rotate(-5deg);
+}
+
+
+/* =========================
+   HOVER
+   ========================= */
+
+.disk-1:hover {
+  transform: translate(8px, -8px) rotate(-5deg) scale(1.06);
+
+  box-shadow:
+    0 14px 0 #3D1E63,
+    0 25px 30px rgba(61, 30, 99, 0.22);
+}
+
+.disk-2:hover {
+  transform: translate(-8px, -8px) rotate(5deg) scale(1.06);
+
+  box-shadow:
+    0 14px 0 #3D1E63,
+    0 25px 30px rgba(61, 30, 99, 0.22);
+}
+
+.disk-3:hover {
+  transform: translate(8px, -8px) rotate(0deg) scale(1.06);
+
+  box-shadow:
+    0 14px 0 #3D1E63,
+    0 25px 30px rgba(61, 30, 99, 0.22);
+}
+
+
+/* =========================
+   TABLET
+   ========================= */
+
+@media (max-width: 900px) {
+
+  .face-disk {
+    width: clamp(120px, 20vw, 180px);
+  }
+
+  .disk-1 {
+    top: 14%;
+    left: 5%;
+  }
+
+  .disk-2 {
+    top: 12%;
+    right: 5%;
+  }
+
+  .disk-3 {
+    bottom: 5%;
+    right: 6%;
+  }
+}
+
+
+/* =========================
+   PHONE
+   ========================= */
+
+@media (max-width: 600px) {
+
+  .navbar {
+    top: 12px;
+    gap: 0;
+    padding: 5px;
+  }
+
+  .navbar {
+    max-width: calc(100vw - 16px);
+  }
+
+  .nav-link {
+    padding: 8px clamp(5px, 1.9vw, 9px);
+    font-size: clamp(10px, 3.2vw, 12.5px);
+  }
+
+  .book-link {
+    padding-left: clamp(7px, 2.4vw, 12px);
+    padding-right: clamp(7px, 2.4vw, 12px);
+  }
+
+  .nav-pill {
+    top: 5px;
+    height: calc(100% - 10px);
+  }
+
+  /* Photos form a symmetric arc above the logo, echoing its curve:
+     outer two lower and tilted outward, middle one highest */
+  .hero {
+    --disk: clamp(78px, 24vw, 112px);
+  }
+
+  .face-disk {
+    width: var(--disk);
+    border-width: 4px;
+
+    box-shadow:
+      0 5px 0 #3D1E63,
+      0 10px 16px rgba(61, 30, 99, 0.18);
+  }
+
+  .disk-1 {
+    top: 96px;
+    left: 7%;
+    right: auto;
+    bottom: auto;
+
+    transform: rotate(-10deg);
+  }
+
+  .disk-2 {
+    top: 78px;
+    left: calc(50% - var(--disk) / 2);
+    right: auto;
+    bottom: auto;
+
+    transform: rotate(0deg);
+  }
+
+  .disk-3 {
+    top: 96px;
+    right: 7%;
+    left: auto;
+    bottom: auto;
+
+    transform: rotate(10deg);
+  }
+
+  /* Mascot gets everything below the photos and above the social bar.
+     main.js zooms it to fit this box, so the logo is never cut off. */
+  #app {
+    top: calc(104px + var(--disk));
+    bottom: 76px;
+  }
+
+  /* Social bar centered along the bottom */
+  .social-bar {
+    top: auto;
+    bottom: 14px;
+    left: 50%;
+    right: auto;
+
+    transform: translateX(-50%);
+
+    flex-direction: row;
+    gap: 6px;
+
+    padding: 5px;
+  }
+
+  .social-link {
+    width: 40px;
+    height: 40px;
+
+    font-size: 18px;
+  }
+}
+
+
+/* =========================
+   REDUCED MOTION
+   ========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .nav-link,
+  .nav-pill,
+  .face-disk,
+  .social-link {
+    transition: none;
+  }
+}
+
+
+/* =========================
+   OUR WORK / GALLERY
+   ========================= */
+
+.gallery {
+  background: var(--magenta);
+  color: var(--cream);
+
+  padding: 88px 0 56px;
+
+  font-family: Avenir, "Avenir Next", "Nunito", sans-serif;
+}
+
+.gallery-intro {
+  padding: 0 5vw;
+  max-width: 900px;
+}
+
+.gallery-kicker {
+  margin: 0 0 6px;
+
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.gallery-title {
+  margin: 0 0 18px;
+
+  font-family: "Hello Goops", "Avenir Next", sans-serif;
+  font-size: clamp(48px, 7vw, 84px);
+  font-weight: normal;
+  line-height: 1;
+  letter-spacing: 0.01em;
+}
+
+.gallery-text {
+  margin: 0;
+  max-width: 780px;
+
+  font-size: clamp(16px, 1.6vw, 20px);
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+
+/* ----- Carousel ----- */
+
+.gallery-carousel {
+  position: relative;
+  margin-top: 48px;
+}
+
+.gallery-viewport {
+  overflow: hidden;
+  touch-action: pan-y; /* lets the page scroll, JS handles side swipes */
+}
+
+.gallery-track {
+  display: flex;
+  transition: transform 0.55s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+
+/* ----- Collage (one slide) ----- */
+
+.collage {
+  flex: 0 0 100%;
+
+  display: grid;
+  grid-template-columns: 1fr 1.05fr 1.65fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 24px;
+
+  height: clamp(320px, 36vw, 520px);
+}
+
+.shot {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  background: var(--magenta-dark);
+
+  /* hides broken-image text if a photo is missing */
+  color: transparent;
+  font-size: 0;
+
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.shot-a { grid-column: 1; grid-row: 1 / 3; }
+.shot-b { grid-column: 2; grid-row: 1; }
+.shot-c { grid-column: 2; grid-row: 2; }
+.shot-d { grid-column: 3; grid-row: 1 / 3; }
+
+
+/* ----- Cute arrows ----- */
+
+.gallery-arrow {
+  position: absolute;
+  top: calc(50% - 20px); /* centered on the photos, not the dots */
+  z-index: 5;
+
+  display: grid;
+  place-items: center;
+
+  width: 68px;
+  height: 64px;
+  padding: 0;
+
+  background: var(--yellow);
+  color: var(--purple-dark);
+
+  border: 4px solid var(--purple-dark);
+  border-radius: 50% 48% 52% 46% / 55% 50% 50% 45%; /* slightly blobby */
+
+  box-shadow:
+    0 6px 0 var(--purple-dark),
+    0 12px 20px rgba(61, 30, 99, 0.3);
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.arrow-prev {
+  left: 20px;
+  transform: translateY(-50%) rotate(-6deg);
+}
+
+.arrow-next {
+  right: 20px;
+  transform: translateY(-50%) rotate(6deg);
+}
+
+/* little shine, like the logo letters */
+.gallery-arrow::before {
+  content: "";
+  position: absolute;
+  top: 9px;
+  left: 14px;
+
+  width: 16px;
+  height: 8px;
+
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 50%;
+
+  transform: rotate(-25deg);
+}
+
+.gallery-arrow svg {
+  width: 30px;
+  height: 30px;
+
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.gallery-arrow:hover {
+  animation: arrow-wiggle 0.5s ease;
+}
+
+.arrow-prev:hover svg { transform: translateX(-2px); }
+.arrow-next:hover svg { transform: translateX(2px); }
+
+.gallery-arrow svg {
+  transition: transform 0.2s ease;
+}
+
+/* squish when pressed */
+.gallery-arrow:active {
+  box-shadow:
+    0 2px 0 var(--purple-dark),
+    0 6px 12px rgba(61, 30, 99, 0.3);
+}
+
+.arrow-prev:active { transform: translateY(calc(-50% + 4px)) rotate(-6deg) scale(0.94, 0.88); }
+.arrow-next:active { transform: translateY(calc(-50% + 4px)) rotate(6deg) scale(0.94, 0.88); }
+
+.gallery-arrow:focus-visible {
+  outline: 3px solid var(--cream);
+  outline-offset: 4px;
+}
+
+@keyframes arrow-wiggle {
+  0%   { rotate: 0deg; }
+  30%  { rotate: -8deg; }
+  60%  { rotate: 6deg; }
+  100% { rotate: 0deg; }
+}
+
+
+/* ----- Dots ----- */
+
+.gallery-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+
+  margin-top: 28px;
+}
+
+.gallery-dot {
+  width: 12px;
+  height: 12px;
+  padding: 0;
+
+  background: transparent;
+  border: 2px solid var(--cream);
+  border-radius: 999px;
+
+  cursor: pointer;
+
+  transition:
+    width 0.3s ease,
+    background 0.3s ease;
+}
+
+.gallery-dot.is-active {
+  width: 30px;
+  background: var(--cream);
+}
+
+.gallery-dot:focus-visible {
+  outline: 2px solid var(--yellow);
+  outline-offset: 3px;
+}
+
+
+/* ----- Gallery: tablet ----- */
+
+@media (max-width: 900px) {
+
+  .collage {
+    gap: 14px;
+    height: clamp(280px, 48vw, 420px);
+  }
+
+  .gallery-arrow {
+    width: 56px;
+    height: 52px;
+  }
+
+  .gallery-arrow svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .gallery-arrow::before {
+    top: 7px;
+    left: 11px;
+    width: 12px;
+    height: 6px;
+  }
+}
+
+
+/* ----- Gallery: phone ----- */
+
+@media (max-width: 600px) {
+
+  /* The whole section is sized to fit one phone screen:
+     clears the navbar on top and the social bar on the bottom */
+  .gallery {
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: 84px 0 80px;
+  }
+
+  .gallery-intro {
+    padding: 0 22px;
+  }
+
+  .gallery-kicker {
+    margin-bottom: 4px;
+    font-size: 14px;
+  }
+
+  .gallery-title {
+    margin-bottom: 10px;
+    font-size: clamp(38px, 12vw, 50px);
+  }
+
+  .gallery-text {
+    font-size: 15px;
+    line-height: 1.35;
+  }
+
+  .gallery-carousel {
+    margin-top: 20px;
+  }
+
+  /* Big photo on top-left, two small on the right, wide one underneath.
+     Height shrinks to whatever space is left on the screen. */
+  .collage {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1.1fr;
+    gap: 6px;
+
+    height: clamp(240px, calc(100vh - 380px), 420px);
+    height: clamp(240px, calc(100svh - 380px), 420px);
+  }
+
+  .gallery-dots {
+    margin-top: 14px;
+  }
+
+  .shot-a { grid-column: 1; grid-row: 1 / 3; }
+  .shot-b { grid-column: 2; grid-row: 1; }
+  .shot-c { grid-column: 2; grid-row: 2; }
+  .shot-d { grid-column: 1 / 3; grid-row: 3; }
+
+  .gallery-arrow {
+    width: 48px;
+    height: 46px;
+    border-width: 3px;
+
+    box-shadow:
+      0 4px 0 var(--purple-dark),
+      0 8px 14px rgba(61, 30, 99, 0.3);
+  }
+
+  .arrow-prev { left: 10px; }
+  .arrow-next { right: 10px; }
+
+  .gallery-arrow svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .gallery-arrow::before {
+    top: 6px;
+    left: 9px;
+    width: 10px;
+    height: 5px;
+  }
+}
+
+
+/* ----- Gallery: reduced motion ----- */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .gallery-track,
+  .gallery-arrow,
+  .gallery-arrow svg,
+  .gallery-dot {
+    transition: none;
+  }
+
+  .gallery-arrow:hover {
+    animation: none;
+  }
+}
+
+
+/* =========================
+   SERVICES (trading cards)
+   ========================= */
+
+.services {
+  --card: 290px;
+
+  background: var(--cream);
+  color: var(--purple-dark);
+
+  padding: 96px 0 72px;
+
+  font-family: Avenir, "Avenir Next", "Nunito", sans-serif;
+}
+
+.services .gallery-title {
+  color: var(--purple);
+}
+
+.services-carousel {
+  position: relative;
+  margin-top: 36px;
+}
+
+
+/* ----- Scrolling row ----- */
+
+.services-track {
+  position: relative; /* card positions are measured from here */
+
+  display: flex;
+  gap: 28px;
+
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+
+  /* Side padding lets the first and last cards sit dead center */
+  padding: 16px calc(50% - var(--card) / 2) 30px;
+
+  scrollbar-width: none;
+}
+
+.services-track::-webkit-scrollbar {
+  display: none;
+}
+
+.services-track:focus-visible {
+  outline: 3px solid var(--purple);
+  outline-offset: -3px;
+}
+
+
+
+/* ----- Card colors ----- */
+
+.card-basic {
+  --frame: linear-gradient(160deg, #A6DB93, #5AA863);
+  --frame-dark: #3F7F48;
+  --frame-light: #E0F2D6;
+}
+
+.card-deluxe {
+  --frame: linear-gradient(160deg, #F07DBB, #B02E80);
+  --frame-dark: #8E2066;
+  --frame-light: #FADAEA;
+}
+
+.card-glitter {
+  --frame: linear-gradient(160deg, #6ACDBE, #2F6F8F);
+  --frame-dark: #245A70;
+  --frame-light: #D4F0EC;
+}
+
+.card-addon {
+  --frame: linear-gradient(160deg, #A67AD8, #592D8A);
+  --frame-dark: #3D1E63;
+  --frame-light: #E8DCF6;
+}
+
+
+/* ----- Card ----- */
+
+.service-card {
+  flex: 0 0 var(--card);
+  width: var(--card);
+
+  scroll-snap-align: center;
+
+  padding: 11px;
+
+  background: var(--frame);
+  border-radius: 24px;
+
+  box-shadow:
+    0 8px 0 var(--frame-dark),
+    0 18px 30px rgba(61, 30, 99, 0.18);
+
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease,
+    filter 0.35s ease;
+}
+
+/* Cards away from the center fade back */
+.service-card:not(.is-active) {
+  opacity: 0.5;
+  transform: scale(0.93);
+  filter: saturate(0.6);
+}
+
+.card-inner {
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+  padding: 12px;
+
+  background: #FFF9E8;
+  border-radius: 15px;
+}
+
+
+/* ----- Header: icon, name, price (like a card's HP) ----- */
+
+.card-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-bottom: 10px;
+}
+
+.card-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+
+  width: 48px;
+  height: 48px;
+  margin: -4px 0 -2px -4px; /* pops slightly out toward the corner */
+
+  font-size: 27px;
+  line-height: 1;
+
+  background: #FFF9E8;
+  border: 3px solid var(--frame-dark);
+  border-radius: 50%;
+
+  /* chunky 3D edge, same style as the buttons and photo circles */
+  box-shadow:
+    0 4px 0 var(--frame-dark),
+    inset 0 0 0 4px var(--frame-light);
+
+  /* makes the emoji itself stand out from the badge */
+  filter: drop-shadow(0 1px 0 rgba(61, 30, 99, 0.35));
+}
+
+.card-name {
+  margin: 0;
+
+  font-size: 16px;
+  letter-spacing: -0.01em;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.card-price {
+  margin: 0 0 0 auto;
+
+  color: var(--frame-dark);
+
+  font-family: "Hello Goops", "Avenir Next", sans-serif;
+  font-size: 30px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.card-price span {
+  font-size: 0.6em;
+  vertical-align: 0.45em;
+}
+
+
+/* ----- Photo ----- */
+
+.card-photo {
+  position: relative;
+
+  aspect-ratio: 4 / 3;
+
+  background: var(--frame-light);
+  border: 3px solid var(--frame-dark);
+  border-radius: 12px;
+
+  overflow: hidden;
+}
+
+.card-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  color: transparent;
+  font-size: 0;
+}
+
+.card-badge {
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+
+  padding: 4px 10px;
+
+  color: #FFF9E8;
+  background: var(--frame-dark);
+  border-radius: 999px;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+
+/* ----- Stats ----- */
+
+.card-stats {
+  display: grid;
+  gap: 9px;
+
+  margin: 14px 0 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.card-stats li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  font-size: 14.5px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.stat-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+
+  width: 28px;
+  height: 28px;
+
+  color: var(--frame-dark);
+  background: var(--frame-light);
+  border-radius: 50%;
+}
+
+.stat-icon svg {
+  width: 16px;
+  height: 16px;
+
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+
+/* ----- Footer ----- */
+
+.card-note {
+  margin: 12px 0 12px;
+  padding-top: 10px;
+
+  border-top: 2px dashed var(--frame-light);
+
+  color: #6B5A7E;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.card-cta {
+  display: block;
+
+  margin-top: auto;
+  padding: 11px 16px;
+
+  color: #FFF9E8;
+  background: var(--frame-dark);
+  border-radius: 999px;
+
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+
+  transition: transform 0.2s ease;
+}
+
+.card-cta:hover {
+  transform: translateY(-2px);
+}
+
+.card-cta:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 3px;
+}
+
+
+/* ----- Arrows and dots ----- */
+
+.services-carousel {
+  --arrow: 68px;
+}
+
+.services-carousel .gallery-arrow {
+  top: calc(50% - 20px);
+}
+
+/* Arrows hug the sides of the center card */
+.services-carousel .arrow-prev {
+  left: calc(50% - var(--card) / 2 - var(--arrow) - 14px);
+}
+
+.services-carousel .arrow-next {
+  right: calc(50% - var(--card) / 2 - var(--arrow) - 14px);
+}
+
+.services-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+
+  margin-top: 8px;
+}
+
+.services-dots .gallery-dot {
+  border-color: var(--purple);
+}
+
+.services-dots .gallery-dot.is-active {
+  background: var(--purple);
+}
+
+.services-dots .gallery-dot:focus-visible {
+  outline-color: var(--purple);
+}
+
+
+/* ----- Services: computers ----- */
+
+/* With a mouse or trackpad, faded cards can't be clicked
+   (neither the card nor its button). Use the arrows or dots. */
+@media (hover: hover) and (pointer: fine) {
+  .service-card:not(.is-active) {
+    pointer-events: none;
+  }
+}
+
+
+/* ----- Services: tablet ----- */
+
+@media (max-width: 900px) {
+  .services-carousel {
+    --arrow: 56px;
+  }
+}
+
+
+/* ----- Services: phone ----- */
+
+@media (max-width: 600px) {
+
+  .services {
+    --card: min(78vw, 300px);
+
+    padding: 80px 0 96px; /* room for the social bar */
+  }
+
+  .services-carousel {
+    margin-top: 20px;
+  }
+
+  .services-track {
+    gap: 16px;
+  }
+
+  /* Not much room beside the card on phones, so the arrows
+     overlap its edge a little */
+  .services-carousel {
+    --arrow: 48px;
+  }
+
+  .services-carousel .arrow-prev {
+    left: max(2px, calc(50% - var(--card) / 2 - var(--arrow) + 16px));
+  }
+
+  .services-carousel .arrow-next {
+    right: max(2px, calc(50% - var(--card) / 2 - var(--arrow) + 16px));
+  }
+}
+
+
+/* ----- Services: reduced motion ----- */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .service-card,
+  .card-cta {
+    transition: none;
+  }
+}
+
+
+/* =========================
+   FIT EVERY SECTION TO THE SCREEN
+   Keeps content clear of the navbar (top)
+   and the social bar (right side / bottom on phones)
+   ========================= */
+
+:root {
+  --nav-clear: 100px;  /* space under the fixed navbar */
+  --side-clear: 100px; /* space beside the social bar */
+}
+
+.gallery,
+.services {
+  min-height: 100vh;
+  min-height: 100svh;
+
+  padding-top: var(--nav-clear);
+  padding-bottom: 28px;
+}
+
+.gallery-kicker {
+  margin-bottom: 4px;
+}
+
+.gallery-title {
+  margin-bottom: 12px;
+}
+
+
+/* ----- Gallery ----- */
+
+.gallery-carousel {
+  margin-top: clamp(20px, 3.5vh, 40px);
+  padding: 0 var(--side-clear);
+}
+
+/* Collage takes whatever height is left on the screen */
+.collage {
+  gap: 18px;
+
+  height: clamp(240px, calc(100vh - 340px), 620px);
+  height: clamp(240px, calc(100svh - 340px), 620px);
+}
+
+.shot {
+  border-radius: 14px;
+}
+
+/* Arrows sit just inside the collage, clear of the social bar */
+.gallery-carousel .arrow-prev {
+  left: calc(var(--side-clear) + 14px);
+}
+
+.gallery-carousel .arrow-next {
+  right: calc(var(--side-clear) + 14px);
+}
+
+.gallery-dots {
+  margin-top: 18px;
+}
+
+
+/* ----- Services ----- */
+
+.services-carousel {
+  margin-top: clamp(8px, 2vh, 30px);
+}
+
+.services-track {
+  padding-top: 12px;
+  padding-bottom: 22px;
+}
+
+.services-dots {
+  margin-top: 4px;
+}
+
+
+/* ----- Shorter laptop screens ----- */
+
+@media (max-height: 880px) and (min-width: 601px) {
+
+  .gallery-title {
+    font-size: clamp(44px, 6vw, 68px);
+    margin-bottom: 8px;
+  }
+
+  .gallery-text {
+    font-size: clamp(15px, 1.4vw, 18px);
+  }
+
+  .card-head {
+    margin-bottom: 8px;
+  }
+
+  .card-photo {
+    aspect-ratio: 16 / 9;
+  }
+
+  .card-stats {
+    gap: 7px;
+    margin-top: 10px;
+  }
+
+  .card-note {
+    margin: 8px 0;
+    padding-top: 8px;
+  }
+
+  .card-cta {
+    padding: 9px 16px;
+  }
+}
+
+@media (max-height: 740px) and (min-width: 601px) {
+
+  :root {
+    --nav-clear: 92px;
+  }
+
+  .card-photo {
+    aspect-ratio: 2 / 1;
+  }
+
+  /* the cards already say this, so drop it when space is tight */
+  .services .gallery-text {
+    display: none;
+  }
+}
+
+
+/* ----- Tablet ----- */
+
+@media (max-width: 900px) {
+
+  :root {
+    --side-clear: 84px;
+  }
+
+  .gallery-carousel .arrow-prev {
+    left: calc(var(--side-clear) + 10px);
+  }
+
+  .gallery-carousel .arrow-next {
+    right: calc(var(--side-clear) + 10px);
+  }
+}
+
+
+/* ----- Phone ----- */
+
+@media (max-width: 600px) {
+
+  :root {
+    --nav-clear: 72px;
+    --side-clear: 12px; /* social bar is at the bottom here */
+  }
+
+  .gallery,
+  .services {
+    padding-bottom: 78px; /* clears the social bar */
+  }
+
+  .collage {
+    gap: 6px;
+
+    height: clamp(230px, calc(100vh - 350px), 440px);
+    height: clamp(230px, calc(100svh - 350px), 440px);
+  }
+
+  .shot {
+    border-radius: 10px;
+  }
+
+  .gallery-carousel .arrow-prev { left: 2px; }
+  .gallery-carousel .arrow-next { right: 2px; }
+
+  .gallery-dots {
+    margin-top: 12px;
+  }
+
+  /* Cards: a little more compact so one fits with the header */
+  .services .gallery-text {
+    display: none;
+  }
+
+  .card-photo {
+    aspect-ratio: 16 / 10;
+  }
+
+  .card-stats {
+    gap: 7px;
+    margin-top: 10px;
+  }
+
+  .card-note {
+    margin: 8px 0;
+    padding-top: 8px;
+  }
+}
+
+
+/* =========================
+   FAQS
+   ========================= */
+
+.faq {
+  --faq-paper: #FFF9E8;
+  --faq-line: #EFE4C4;
+
+  min-height: 100vh;
+  min-height: 100svh;
+
+  padding: var(--nav-clear) 0 56px;
+
+  background: var(--yellow);
+  color: var(--purple-dark);
+
+  font-family: Avenir, "Avenir Next", "Nunito", sans-serif;
+}
+
+.faq-body {
+  display: grid;
+  grid-template-columns: minmax(250px, 300px) minmax(0, 780px);
+  gap: 28px;
+  align-items: start;
+
+  margin-top: clamp(20px, 3.5vh, 36px);
+  padding: 0 var(--side-clear) 0 5vw;
+}
+
+
+/* ----- Category tabs ----- */
+
+.faq-tabs {
+  display: grid;
+  gap: 12px;
+}
+
+.faq-tab {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  width: 100%;
+  padding: 12px 16px 12px 12px;
+
+  color: var(--purple-dark);
+  background: rgba(255, 249, 232, 0.5);
+
+  border: 3px solid transparent;
+  border-radius: 20px;
+
+  font: inherit;
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.faq-tab:hover {
+  background: rgba(255, 249, 232, 0.85);
+}
+
+.faq-tab.is-active {
+  background: var(--faq-paper);
+  border-color: var(--purple-dark);
+
+  box-shadow: 0 5px 0 var(--purple-dark);
+
+  transform: translateY(-2px);
+}
+
+.faq-tab:focus-visible {
+  outline: 3px solid var(--magenta);
+  outline-offset: 3px;
+}
+
+.faq-tab-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+
+  width: 48px;
+  height: 48px;
+
+  background: var(--faq-paper);
+  border-radius: 14px;
+}
+
+.faq-tab.is-active .faq-tab-icon {
+  background: #F6EDD2;
+}
+
+.faq-tab-icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.faq-tab-text {
+  display: grid;
+  gap: 2px;
+}
+
+.faq-tab-name {
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.faq-tab-count {
+  font-size: 13px;
+  font-weight: 600;
+  opacity: 0.65;
+}
+
+
+/* ----- Question card ----- */
+
+.faq-card {
+  padding: 26px 32px 22px;
+
+  background: var(--faq-paper);
+
+  border: 3px solid var(--purple-dark);
+  border-radius: 26px;
+
+  box-shadow: 0 8px 0 var(--purple-dark);
+}
+
+.faq-panel-head {
+  margin-bottom: 6px;
+}
+
+.faq-panel-head h3 {
+  margin: 0;
+
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.faq-panel-head p {
+  margin: 4px 0 0;
+
+  font-size: 15px;
+  font-weight: 500;
+  opacity: 0.7;
+}
+
+
+/* ----- Accordion ----- */
+
+.faq-item {
+  border-bottom: 2px solid var(--faq-line);
+}
+
+.faq-q {
+  margin: 0;
+}
+
+.faq-q button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+
+  width: 100%;
+  padding: 17px 0;
+
+  color: var(--purple-dark);
+  background: none;
+  border: 0;
+
+  font: inherit;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.35;
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.faq-q button:hover span:first-child {
+  color: var(--magenta);
+}
+
+.faq-q button:focus-visible {
+  outline: 3px solid var(--magenta);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* Plus that turns into a minus */
+.faq-toggle {
+  position: relative;
+  flex: 0 0 auto;
+
+  width: 32px;
+  height: 32px;
+
+  background: var(--magenta);
+  border-radius: 50%;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.faq-toggle::before,
+.faq-toggle::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: 14px;
+  height: 3px;
+
+  background: var(--faq-paper);
+  border-radius: 2px;
+
+  transform: translate(-50%, -50%);
+  transition: transform 0.25s ease;
+}
+
+.faq-toggle::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.faq-q button[aria-expanded="true"] .faq-toggle {
+  background: var(--purple-dark);
+  transform: rotate(180deg);
+}
+
+.faq-q button[aria-expanded="true"] .faq-toggle::after {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+/* Smooth open/close */
+.faq-answer {
+  display: grid;
+  grid-template-rows: 0fr;
+
+  transition: grid-template-rows 0.3s ease;
+}
+
+.faq-answer.is-open {
+  grid-template-rows: 1fr;
+}
+
+.faq-answer-inner {
+  overflow: hidden;
+}
+
+.faq-answer p {
+  max-width: 62ch;
+  margin: 0;
+  padding: 0 48px 20px 0;
+
+  color: #4A3A5C;
+
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+/* Placeholder answers stand out so you can find and replace them */
+.faq-fill {
+  padding: 1px 6px;
+
+  color: var(--magenta-dark);
+  background: #FADAEA;
+  border-radius: 6px;
+
+  font-style: italic;
+}
+
+
+/* ----- Footer line ----- */
+
+.faq-more {
+  margin: 18px 0 0;
+
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.faq-more a {
+  margin-left: 4px;
+
+  color: var(--magenta);
+  font-weight: 800;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+.faq-more a:hover {
+  color: var(--purple);
+}
+
+
+/* ----- FAQs: tablet ----- */
+
+@media (max-width: 900px) {
+
+  .faq-body {
+    grid-template-columns: 1fr;
+    gap: 20px;
+
+    padding: 0 var(--side-clear) 0 5vw;
+  }
+
+  .faq-tabs {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+
+/* ----- FAQs: phone ----- */
+
+@media (max-width: 600px) {
+
+  .faq {
+    padding-bottom: 88px; /* clears the social bar */
+  }
+
+  .faq-body {
+    padding: 0 16px;
+  }
+
+  .faq-tabs {
+    gap: 8px;
+  }
+
+  .faq-tab {
+    gap: 8px;
+    padding: 8px 10px 8px 8px;
+    border-radius: 16px;
+  }
+
+  .faq-tab-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 11px;
+  }
+
+  .faq-tab-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .faq-tab-name {
+    font-size: 13.5px;
+  }
+
+  .faq-tab-count {
+    display: none;
+  }
+
+  .faq-card {
+    padding: 18px 18px 16px;
+    border-radius: 22px;
+  }
+
+  .faq-panel-head h3 {
+    font-size: 20px;
+  }
+
+  .faq-panel-head p {
+    font-size: 14px;
+  }
+
+  .faq-q button {
+    padding: 14px 0;
+    font-size: 15.5px;
+  }
+
+  .faq-toggle {
+    width: 28px;
+    height: 28px;
+  }
+
+  .faq-answer p {
+    padding-right: 0;
+    font-size: 15px;
+  }
+}
+
+
+/* ----- FAQs: reduced motion ----- */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .faq-tab,
+  .faq-toggle,
+  .faq-toggle::before,
+  .faq-toggle::after,
+  .faq-answer {
+    transition: none;
+  }
+}
+
+
+/* =========================
+   SERVICES: ROW ON COMPUTERS
+   All four cards side by side. No arrows, dots, or fading.
+   (Keep this query in sync with ROW_MODE in main.js)
+   ========================= */
+
+@media (min-width: 1000px) and (hover: hover) and (pointer: fine) {
+
+  .services-track {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 290px));
+    justify-content: center;
+    gap: clamp(16px, 1.8vw, 28px);
+
+    overflow: visible;
+    scroll-snap-type: none;
+
+    padding: 12px var(--side-clear) 22px;
+  }
+
+  .service-card,
+  .service-card:not(.is-active) {
+    width: auto;
+
+    opacity: 1;
+    transform: none;
+    filter: none;
+    pointer-events: auto;
+  }
+
+  /* little lift on hover since they're all "live" now */
+  .service-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .services-carousel .gallery-arrow,
+  .services-dots {
+    display: none;
+  }
+}
+
+
+
+
+/* =========================
+   ARROWS: SIMPLER
+   Clean teal circles instead of tilted yellow blobs
+   ========================= */
+
+.gallery-arrow {
+  width: 56px;
+  height: 56px;
+
+  color: #FFF9E8;
+  background: #2A9A94;
+
+  border: 3px solid #FFF9E8;
+  border-radius: 50%;
+
+  box-shadow:
+    0 3px 0 #1D6E6A,
+    0 8px 18px rgba(61, 30, 99, 0.22);
+}
+
+.gallery-arrow::before {
+  content: none; /* no shine */
+}
+
+.gallery-arrow svg {
+  width: 24px;
+  height: 24px;
+  stroke-width: 3.5;
+}
+
+/* no tilt */
+.arrow-prev,
+.arrow-next {
+  transform: translateY(-50%);
+}
+
+/* no wiggle, just a gentle grow */
+.gallery-arrow:hover {
+  animation: none;
+  background: #31ABA4;
+}
+
+.arrow-prev:hover,
+.arrow-next:hover {
+  transform: translateY(-50%) scale(1.06);
+}
+
+.arrow-prev:active,
+.arrow-next:active {
+  transform: translateY(calc(-50% + 2px)) scale(0.97);
+  box-shadow:
+    0 1px 0 #1D6E6A,
+    0 4px 10px rgba(61, 30, 99, 0.22);
+}
+
+.gallery-arrow:focus-visible {
+  outline: 3px solid var(--purple-dark);
+  outline-offset: 3px;
+}
+
+.services-carousel {
+  --arrow: 56px;
+}
+
+@media (max-width: 900px) {
+
+  .gallery-arrow {
+    width: 48px;
+    height: 48px;
+  }
+
+  .gallery-arrow svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .services-carousel {
+    --arrow: 48px;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .gallery-arrow {
+    width: 42px;
+    height: 42px;
+    border-width: 2px;
+  }
+
+  .gallery-arrow svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .services-carousel {
+    --arrow: 42px;
+  }
+}
+
+
+/* =========================
+   CURSOR: CIRCLE THAT SPLATS
+   Only on computers (mouse/trackpad). main.js adds the
+   .has-custom-cursor class once it's running, so if the
+   script ever fails the normal cursor stays.
+   ========================= */
+
+.has-custom-cursor,
+.has-custom-cursor * {
+  cursor: none !important;
+}
+
+/* normal typing cursor inside text boxes */
+.has-custom-cursor input:not([type="radio"]):not([type="checkbox"]),
+.has-custom-cursor textarea {
+  cursor: text !important;
+}
+
+.has-custom-cursor select {
+  cursor: pointer !important;
+}
+
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+
+  pointer-events: none;
+
+  will-change: transform;
+}
+
+.cursor-ball {
+  width: 18px;
+  height: 18px;
+  margin: -9px 0 0 -9px;
+
+  background: var(--purple);
+  border: 2px solid #FFF9E8;
+  border-radius: 50%;
+
+  box-shadow: 0 0 0 1px rgba(61, 30, 99, 0.35);
+
+  transition:
+    transform 0.18s ease,
+    opacity 0.2s ease,
+    background 0.2s ease;
+}
+
+/* grows over anything clickable */
+.cursor-dot.is-hovering .cursor-ball {
+  transform: scale(1.6);
+  background: #2A9A94;
+}
+
+/* squishes while the mouse is held down */
+.cursor-dot.is-pressed .cursor-ball {
+  transform: scale(0.7);
+}
+
+.cursor-dot.is-hidden .cursor-ball {
+  opacity: 0;
+}
+
+/* the splat left behind on click */
+.cursor-splat {
+  position: fixed;
+  z-index: 9998;
+
+  width: 56px;
+  height: 56px;
+  margin: -28px 0 0 -28px;
+
+  pointer-events: none;
+
+  animation: splat 0.6s ease-out forwards;
+}
+
+@keyframes splat {
+  0%   { transform: rotate(var(--spin)) scale(0.2); opacity: 1; }
+  35%  { transform: rotate(var(--spin)) scale(1.05); opacity: 1; }
+  100% { transform: rotate(var(--spin)) scale(1.15); opacity: 0; }
+}
+
+
+/* =========================
+   BOOK NOW
+   ========================= */
+
+.book {
+  --paper: #FFF9E8;
+  --line: #E6D9B6;
+
+  min-height: 100vh;
+  min-height: 100svh;
+
+  padding: var(--nav-clear) var(--side-clear) 56px 5vw;
+
+  background: var(--cream);
+  color: var(--purple-dark);
+
+  font-family: Avenir, "Avenir Next", "Nunito", sans-serif;
+}
+
+.book-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) minmax(0, 1.35fr);
+  gap: clamp(28px, 4vw, 64px);
+  align-items: start;
+
+  max-width: 1200px;
+}
+
+.book .gallery-title {
+  color: var(--purple);
+}
+
+.book .gallery-kicker {
+  max-width: 34ch;
+  line-height: 1.35;
+}
+
+
+/* ----- Disclaimer ----- */
+
+.book-disclaimer {
+  margin-top: 22px;
+  padding: 16px 20px 18px;
+
+  background: #FADAEA;
+  border: 2px solid var(--magenta);
+  border-radius: 18px;
+}
+
+.book-disclaimer-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin: 0 0 6px;
+
+  color: var(--magenta-dark);
+
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.book-disclaimer-title svg {
+  width: 20px;
+  height: 20px;
+
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+}
+
+.book-disclaimer p:last-child {
+  margin: 0;
+
+  font-size: 15.5px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+
+/* ----- How it works ----- */
+
+.book-steps {
+  display: grid;
+  gap: 16px;
+
+  margin: 28px 0 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.book-steps li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.book-steps strong {
+  display: block;
+
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.book-step-num {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+
+  width: 34px;
+  height: 34px;
+
+  color: var(--paper);
+  background: var(--purple);
+  border-radius: 50%;
+
+  font-weight: 800;
+}
+
+
+/* ----- Form card ----- */
+
+.book-card {
+  padding: 28px 30px 24px;
+
+  background: var(--paper);
+
+  border: 3px solid var(--purple-dark);
+  border-radius: 26px;
+
+  box-shadow: 0 8px 0 var(--purple-dark);
+}
+
+.book-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 18px;
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+
+  border: 0;
+}
+
+.field-full {
+  grid-column: 1 / -1;
+}
+
+.field > label:not(.addon-option),
+.field > legend {
+  padding: 0;
+
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.field legend {
+  margin-bottom: 6px;
+}
+
+.optional {
+  font-weight: 500;
+  opacity: 0.6;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 11px 14px;
+
+  color: var(--purple-dark);
+  background: #FFFDF7;
+
+  border: 2px solid var(--line);
+  border-radius: 12px;
+
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 84px;
+}
+
+.field select {
+  appearance: none;
+
+  padding-right: 40px;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233D1E63' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 16px;
+}
+
+.field input:hover,
+.field select:hover,
+.field textarea:hover {
+  border-color: #D6C697;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+
+  border-color: var(--purple);
+  box-shadow: 0 0 0 4px rgba(89, 45, 138, 0.15);
+}
+
+/* only show red after someone has tried and missed */
+.book-form.was-submitted :invalid:not(fieldset) {
+  border-color: var(--magenta);
+}
+
+
+/* ----- Package choices ----- */
+
+.package-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.package-option {
+  position: relative;
+
+  display: grid;
+  gap: 2px;
+
+  padding: 12px 14px;
+
+  background: #FFFDF7;
+  border: 2px solid var(--line);
+  border-radius: 14px;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.15s ease;
+}
+
+.package-option input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.package-name {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.package-price {
+  font-family: "Hello Goops", "Avenir Next", sans-serif;
+  font-size: 22px;
+  line-height: 1.1;
+}
+
+.option-basic   { --pick: #3F7F48; --pick-bg: #E0F2D6; }
+.option-deluxe  { --pick: #8E2066; --pick-bg: #FADAEA; }
+.option-glitter { --pick: #245A70; --pick-bg: #D4F0EC; }
+
+.package-price {
+  color: var(--pick);
+}
+
+.package-option:hover {
+  border-color: var(--pick);
+}
+
+.package-option:has(input:checked) {
+  background: var(--pick-bg);
+  border-color: var(--pick);
+  box-shadow: 0 4px 0 var(--pick);
+  transform: translateY(-2px);
+}
+
+.package-option:has(input:focus-visible) {
+  outline: 3px solid var(--purple);
+  outline-offset: 2px;
+}
+
+.book-form.was-submitted .package-options:has(input:invalid) .package-option {
+  border-color: var(--magenta);
+}
+
+
+/* ----- Add-on checkbox ----- */
+
+.addon-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  width: fit-content;
+  margin-top: 12px;
+  padding: 8px 14px 8px 10px;
+
+  background: #FFFDF7;
+  border: 2px solid var(--line);
+  border-radius: 999px;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.addon-option input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.addon-box {
+  position: relative;
+
+  width: 22px;
+  height: 22px;
+
+  background: #FFFDF7;
+  border: 2px solid #CDBE92;
+  border-radius: 7px;
+
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.addon-option:hover {
+  border-color: var(--purple);
+}
+
+.addon-option:has(input:checked) {
+  background: #E8DCF6;
+  border-color: var(--purple);
+}
+
+.addon-option:has(input:checked) .addon-box {
+  background: var(--purple);
+  border-color: var(--purple);
+}
+
+.addon-option:has(input:checked) .addon-box::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 2px;
+
+  width: 5px;
+  height: 10px;
+
+  border: solid var(--paper);
+  border-width: 0 3px 3px 0;
+
+  transform: rotate(45deg);
+}
+
+.addon-option:has(input:focus-visible) {
+  outline: 3px solid var(--purple);
+  outline-offset: 2px;
+}
+
+
+/* ----- Submit ----- */
+
+.book-submit {
+  width: 100%;
+  padding: 15px 20px;
+
+  color: var(--paper);
+  background: var(--magenta);
+
+  border: 0;
+  border-radius: 16px;
+
+  box-shadow: 0 5px 0 var(--magenta-dark);
+
+  font: inherit;
+  font-size: 17px;
+  font-weight: 800;
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.15s ease;
+}
+
+.book-submit:hover {
+  background: #BD3A8E;
+  transform: translateY(-2px);
+  box-shadow: 0 7px 0 var(--magenta-dark);
+}
+
+.book-submit:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 var(--magenta-dark);
+}
+
+.book-submit:focus-visible {
+  outline: 3px solid var(--purple);
+  outline-offset: 3px;
+}
+
+.book-submit:disabled {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.book-fine-print {
+  margin: 12px 0 0;
+
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  opacity: 0.65;
+}
+
+
+/* ----- Sent! ----- */
+
+.book-success {
+  padding: 40px 10px;
+  text-align: center;
+}
+
+.book-success:focus {
+  outline: none;
+}
+
+.book-success-emoji {
+  margin: 0;
+  font-size: 48px;
+}
+
+.book-success h3 {
+  margin: 8px 0 8px;
+
+  color: var(--purple);
+
+  font-family: "Hello Goops", "Avenir Next", sans-serif;
+  font-size: 40px;
+  font-weight: normal;
+}
+
+.book-success-text {
+  max-width: 40ch;
+  margin: 0 auto;
+
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+
+/* ----- Book: tablet ----- */
+
+@media (max-width: 900px) {
+
+  .book-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .book-steps {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .book-steps li {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+
+/* ----- Book: phone ----- */
+
+@media (max-width: 600px) {
+
+  .book {
+    padding: var(--nav-clear) 16px 96px;
+  }
+
+  .book .gallery-kicker {
+    font-size: 15px;
+  }
+
+  .book-steps {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .book-steps li {
+    flex-direction: row;
+  }
+
+  .book-card {
+    padding: 20px 18px 18px;
+    border-radius: 22px;
+  }
+
+  .book-form {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .package-option {
+    padding: 10px;
+  }
+
+  .package-name {
+    font-size: 14px;
+  }
+
+  .package-price {
+    font-size: 19px;
+  }
+}
+
+
+/* ----- Book: reduced motion ----- */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .package-option,
+  .book-submit,
+  .field input,
+  .field select,
+  .field textarea {
+    transition: none;
+  }
+}
